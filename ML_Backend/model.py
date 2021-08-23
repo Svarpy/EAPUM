@@ -94,7 +94,7 @@ def op_preprocess(sample,scaler):
     # Ordinal-encode the BusinessTravel column
     df['BusinessTravel'] = df['BusinessTravel'].replace({'Non-Travel': 0, 'Travel_Rarely': 1, 'Travel_Frequently': 2})
     
-    # One-hot encoding
+    # One-Hot encoding
     #for column in ['Department', 'EducationField', 'JobRole', 'MaritalStatus']:
         #df = onehot_encode(df, column=column)
 
@@ -122,9 +122,9 @@ def op_preprocess(sample,scaler):
 
 X_train, X_test, y_train, y_test,scaler = preprocess_inputs(data)
 
-#X_train
+#print(X_train)
 
-#y_train
+#print(y_train)
 
 """**Training**"""
 
@@ -141,15 +141,15 @@ models = {
 
 #pre_models = models.copy()
 
-##print("Normalized Dataset")
+#print("Normalized Dataset")
 '''
 for name, model in models.items():
     model.fit(X_train, y_train)
     ##print(name + " trained.")
 '''
-##print('--------------------------------')
+#print('--------------------------------')
 '''
-##print("Handpicked Dataset")
+#print("Handpicked Dataset")
 for name, pre_model in pre_models.items():
     pre_model.fit(pre_X_train, pre_y_train)
     ##print(name + " trained.")'''
@@ -167,7 +167,7 @@ ea_svm = LinearSVC(max_iter=1500)
 ea_svm.fit(X_train,y_train)
 
 '''
-
+#Predicting part, etc..
 from sklearn.metrics import confusion_matrix,accuracy_score,classification_report
 pred = ea_svm.predict(X_test)
 
@@ -228,7 +228,7 @@ for row in range(df.shape[0]):
       #print(pred[row],df.columns[mx])'''
 
 
-import pickle
+import pickle #For storing the model
 # open a file, where you ant to store the data
 file = open('svm.pkl', 'wb')
 
