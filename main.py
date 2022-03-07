@@ -37,10 +37,10 @@ def index():
             #var = "File Uploaded Successfully"
             res = pred.pred2(filename)
             os.remove(filename)
-            return render_template('index.html', res = res)
+            return render_template('index2.html', res = res)
         else:    
-            return render_template('index.html', msg = "File Upload Failed. Please Try Again!")
-    return render_template('index.html', msg = "File not uploaded. Please upload a csv file.")
+            return render_template('index2.html', msg = "File Upload Failed. Please Try Again!")
+    return render_template('index2.html', msg = "File not uploaded. Please upload a csv file.")
 
 #Page2
 '''
